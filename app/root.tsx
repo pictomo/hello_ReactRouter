@@ -7,13 +7,13 @@ import {
   isRouteErrorResponse,
 } from "react-router";
 import type { Route } from "./+types/root";
-import { getContacts } from "./data";
+import { createEmptyContact } from "./data";
 
 import appStylesHref from "./app.css?url";
 
-export async function clientLoader() {
-  const contacts = await getContacts();
-  return { contacts };
+export async function action() {
+  const contact = await createEmptyContact();
+  return { contact };
 }
 
 export default function App() {
